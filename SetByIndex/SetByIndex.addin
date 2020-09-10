@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Set By Index</Name>
+    <Assembly>SetByIndex.dll</Assembly>
+    <AddInId>00A4C164-52CE-437F-8E11-2C6FA63A0334</AddInId>
+    <Text>Set By Index</Text>
+    <Description>Create printing sheet sets from sheet schedules</Description>
+    <FullClassName>SetByIndex.ThisApplication</FullClassName>
+    <VendorId>Gast</VendorId>
+    <VendorDescription>gastonbalparda@gmail.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
