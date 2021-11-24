@@ -29,29 +29,18 @@ namespace SetByIndex
 
                 String exeConfigPath = Path.GetDirectoryName(ThisDllPath) + "\\SetByIndex.dll";
 
-                string RibbonTabName = "ASG";
-                string PanelName = "Set by index";
+                string PanelName = "Gas Tools";
 
-                // Create ribbon and the panel
-                try
-                {
-                    uiApp.CreateRibbonTab(RibbonTabName);
-                }
-
-                catch (Autodesk.Revit.Exceptions.ArgumentException)
-                {
-                    // Do nothing, tab already exists
-                }
 
                 try
                 {
-                    DefaultPanel = uiApp.CreateRibbonPanel(RibbonTabName, PanelName);
+                    DefaultPanel = uiApp.CreateRibbonPanel(PanelName);
                 }
 
                 // Panel already exists
                 catch (Autodesk.Revit.Exceptions.ArgumentException)
                 {
-                    List<RibbonPanel> Panels = uiApp.GetRibbonPanels(RibbonTabName);
+                    List<RibbonPanel> Panels = uiApp.GetRibbonPanels();
                     DefaultPanel = Panels.Find(p => p.Name.Equals(PanelName));
                 }
 
@@ -59,7 +48,7 @@ namespace SetByIndex
                 // Button configuration
                 string SetByIndexName = "Set by index";
                 PushButtonData SetByIndexData = new PushButtonData(SetByIndexName, SetByIndexName, exeConfigPath, "SetByIndex.ThisCommand");
-                SetByIndexData.LargeImage = Utils.RetriveImage("SetByIndex.Resources.Sched.ico"); // Pushbutton image
+                SetByIndexData.LargeImage = Utils.RetriveImage("SetByIndex.Resources.SetByIndex32x32.ico"); // Pushbutton image
                 SetByIndexData.ToolTip = "Create printing sheet sets from sheet schedules";
                 RibbonItem CadDetectiveButton = DefaultPanel.AddItem(SetByIndexData); // Add pushbutton
 
